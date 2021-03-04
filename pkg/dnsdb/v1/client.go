@@ -75,7 +75,11 @@ func (c *Client) getHttpClient() *http.Client {
 
 func (c *Client) baseURL() *url.URL {
 	u := new(url.URL)
-	*u = *c.Server
+	if c.Server != nil {
+		*u = *c.Server
+	} else {
+		*u = *DefaultDnsdbServer
+	}
 
 	v := u.Query()
 	if c.ClientName != "" {
