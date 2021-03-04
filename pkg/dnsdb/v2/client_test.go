@@ -26,6 +26,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/dnsdb/go-dnsdb/pkg/dnsdb"
+
 	. "github.com/onsi/gomega"
 )
 
@@ -273,7 +275,7 @@ func TestBaseURL(t *testing.T) {
 
 		v := h.Query()
 		g.Expect(v.Get(SwClientKey)).Should(Equal(DefaultClientName))
-		g.Expect(v.Get(VersionKey)).Should(Equal(DefaultClientVersion))
+		g.Expect(v.Get(VersionKey)).Should(Equal(dnsdb.Version))
 		g.Expect(v.Get(IdKey)).Should(BeEmpty())
 	})
 
