@@ -24,16 +24,15 @@ import (
 )
 
 const (
-	lookupRRSetPath      = "/dnsdb/v2/lookup/rrset"
-	lookupRDataPath      = "/dnsdb/v2/lookup/rdata"
-	summarizeRRSetPath   = "/dnsdb/v2/summarize/rrset"
-	summarizeRDataPath   = "/dnsdb/v2/summarize/rdata"
-	ContentType          = "application/x-ndjson"
-	DefaultClientName    = "godnsdb"
-	DefaultClientVersion = "v0.0"
-	SwClientKey          = "swclient"
-	VersionKey           = "version"
-	IdKey                = "id"
+	lookupRRSetPath    = "/dnsdb/v2/lookup/rrset"
+	lookupRDataPath    = "/dnsdb/v2/lookup/rdata"
+	summarizeRRSetPath = "/dnsdb/v2/summarize/rrset"
+	summarizeRDataPath = "/dnsdb/v2/summarize/rdata"
+	ContentType        = "application/x-ndjson"
+	DefaultClientName  = "dnsdb"
+	SwClientKey        = "swclient"
+	VersionKey         = "version"
+	IdKey              = "id"
 )
 
 var DefaultDnsdbServer *url.URL
@@ -91,7 +90,7 @@ func (c *Client) baseURL() *url.URL {
 	if c.ClientVersion != "" {
 		v.Add(VersionKey, c.ClientVersion)
 	} else {
-		v.Add(VersionKey, DefaultClientVersion)
+		v.Add(VersionKey, dnsdb.Version)
 	}
 	if c.ClientId != "" {
 		v.Add(IdKey, c.ClientId)
