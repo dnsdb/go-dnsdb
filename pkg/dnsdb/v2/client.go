@@ -29,7 +29,7 @@ const (
 	summarizeRRSetPath   = "/dnsdb/v2/summarize/rrset"
 	summarizeRDataPath   = "/dnsdb/v2/summarize/rdata"
 	ContentType          = "application/x-ndjson"
-	DefaultClientName    = "go-dnsdb"
+	DefaultClientName    = "godnsdb"
 	DefaultClientVersion = "v0.0"
 	SwClientKey          = "swclient"
 	VersionKey           = "version"
