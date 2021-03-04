@@ -264,17 +264,12 @@ func TestBaseURL(t *testing.T) {
 	t.Run("default", func(t *testing.T) {
 		g := NewWithT(t)
 
-		client := &Client{
-			Server: &url.URL{
-				Scheme: "https",
-				Host:   "api.dnsdb.info",
-				Path:   "/test",
-			},
-		}
+		client := &Client{}
 
 		h := client.baseURL()
 
-		g.Expect(h.Path).Should(Equal(client.Server.Path))
+		g.Expect(h.Path).Should(Equal(""))
+		g.Expect(h.Host).Should(Equal(DefaultDnsdbServer.Host))
 
 		v := h.Query()
 		g.Expect(v.Get(SwClientKey)).Should(Equal(DefaultClientName))
