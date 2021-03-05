@@ -7,7 +7,7 @@ Please see https://www.farsightsecurity.com/solutions/dnsdb/ for more informatio
 
 ## Requirements
 
- * Golang 1.11 or greater
+ * Golang 1.12 or greater
  * Farsight DNSDB API key
 
 ## Installation
